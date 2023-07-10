@@ -1,0 +1,281 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: #1a1a1a;
+}
+
+.header {
+  background-color: #1a1a1a;
+}
+.header__navegacion {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.header__link {
+  font-size: 1.2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  padding: 1.3rem;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+.header__link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #756bf8;
+  position: absolute;
+  transform: scaleX(0);
+  right: 0;
+  left: 0;
+  bottom: 10px;
+  transition: transform 0.3s;
+}
+.header__link:hover {
+  color: #756bf8;
+}
+.header__link:hover::after {
+  transform: scaleX(1);
+}
+.header__link--seleccionado {
+  color: #756bf8;
+}
+.header__link--seleccionado::after {
+  transform: scaleX(1);
+}
+
+.buscador {
+  display: flex;
+  flex-grow: 1;
+}
+.buscador__input {
+  flex-grow: 10;
+  border: none;
+  padding: 1rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.buscador__input:focus {
+  outline: none;
+}
+.buscador__boton {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  flex-grow: 1;
+  border: none;
+  background-color: #756bf8;
+  transition: background-color 0.4s;
+}
+.buscador__boton:hover {
+  background-color: #483af6;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  height: 40px;
+  width: 80%;
+  margin: 1.3rem auto;
+  gap: 1.5rem;
+}
+.controls__boton {
+  border: none;
+  color: white;
+  background-color: #756bf8;
+  padding: 0.3rem 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+.controls__boton:hover {
+  background-color: #483af6;
+  cursor: pointer;
+}
+
+.operationModal {
+  visibility: hidden;
+  position: fixed;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.operationModal__container {
+  background-color: #1a1a1a;
+  width: 30%;
+  border-radius: 0.5rem;
+  transform: translateY(100%);
+  min-width: 360px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s;
+}
+.operationModal--show {
+  visibility: visible;
+}
+.operationModal--show .operationModal__container {
+  transform: translateY(0);
+}
+.operationModal__titulo {
+  margin: 0;
+}
+.operationModal__header {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  background: #756bf8;
+  color: white;
+  font-weight: bold;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.operationModal__form {
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+.operationModal__field {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 1rem;
+}
+.operationModal__input {
+  width: 100%;
+  padding: 0.3rem;
+}
+.operationModal__input:focus {
+  outline: none;
+}
+.operationModal__textarea {
+  resize: none;
+  width: 100%;
+  padding: 0.3rem;
+}
+.operationModal__textarea:focus {
+  outline: none;
+}
+.operationModal__close {
+  border: none;
+  padding: 0.1rem 0.7rem;
+  background-color: rgb(255, 84, 84);
+  color: white;
+  font-weight: bold;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+.operationModal__close:hover {
+  background-color: #ff2121;
+  cursor: pointer;
+}
+.operationModal__botones {
+  display: flex;
+  gap: 1rem;
+}
+.operationModal__boton {
+  border: none;
+  background-color: #756bf8;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.operationModal__boton:hover {
+  background-color: #483af6;
+  cursor: pointer;
+}
+
+.tarea {
+  padding: 1rem 2rem;
+  background-color: rgb(17, 17, 17);
+  border-left: 7px solid #756bf8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  color: white;
+}
+.tarea--eliminada {
+  border-left: 7px solid rgb(254, 33, 33);
+}
+.tarea--completada {
+  border-left: 7px solid rgb(33, 254, 62);
+}
+.tarea__info {
+  display: flex;
+  justify-content: space-between;
+}
+.tarea__titulo {
+  margin: 0;
+}
+.tarea__botones {
+  display: flex;
+  gap: 1rem;
+}
+.tarea__plus {
+  display: none;
+}
+.tarea__plus--show {
+  display: unset;
+}
+.tarea__description {
+  overflow: hidden;
+}
+.tarea__button {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+.tarea__button svg {
+  stroke: white;
+}
+.tarea__button:hover {
+  cursor: pointer;
+}
+.tarea__button--eliminar:hover {
+  background-color: rgb(254, 33, 33);
+}
+.tarea__button--check:hover {
+  background-color: rgb(19, 105, 19);
+}
+.tarea__button--look:hover {
+  background-color: rgb(83, 19, 135);
+}
+.tarea__checkbox {
+  display: none;
+}
+.tarea__checkbox:checked + .tarea__button--check {
+  background-color: rgb(19, 105, 19);
+}
+
+.tareas {
+  width: 80%;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}/*# sourceMappingURL=app.css.map */

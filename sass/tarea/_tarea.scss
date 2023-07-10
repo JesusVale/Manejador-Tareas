@@ -1,0 +1,79 @@
+@use "../base/variables" as v;
+
+.tarea{
+    padding: 1rem 2rem;
+    background-color: rgb(17, 17, 17);
+    border-left: 7px solid v.$primaryColor;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+    color: white;
+    &--eliminada{
+        border-left: 7px solid rgb(254, 33, 33);
+    }
+    &--completada{
+        border-left: 7px solid rgb(33, 254, 62);
+    }
+    &__info{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__titulo{
+        margin: 0;
+    }
+    &__botones{
+        display: flex;
+        gap: 1rem;
+    }
+    &__plus{
+        display: none;
+        
+        &--show{
+            display: unset;
+        }
+    }
+    &__description{
+        overflow: hidden;
+    }
+    &__button{
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s;
+        svg{
+            stroke: white;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        &--eliminar{
+            &:hover{
+                background-color: rgb(254, 33, 33);
+            }
+        }
+        &--check{
+            &:hover{
+                background-color: rgb(19, 105, 19);
+            }
+        }
+        &--look{
+            &:hover{
+                background-color: rgb(83, 19, 135);
+            }
+        }
+    }
+    &__checkbox{
+        display: none;
+        &:checked{
+            + .tarea__button--check {
+                background-color: rgb(19, 105, 19);
+            }
+        }
+    }
+}

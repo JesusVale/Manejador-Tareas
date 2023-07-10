@@ -1,0 +1,45 @@
+@use "../base/variables" as v;
+
+.header{
+    background-color: v.$background;
+    &__navegacion{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    &__link{
+        font-size: 1.2rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: v.$white;
+        text-decoration: none;
+        position: relative;
+        padding: 1.3rem;
+        transition: background-color 0.3s;
+        font-weight: bold;
+        &::after{
+            content: "";
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: v.$primaryColor;
+            position: absolute;
+            transform: scaleX(0);
+            right: 0;
+            left: 0;
+            bottom: 10px;
+            transition: transform 0.3s;
+        }
+        &:hover{
+            color: v.$primaryColor;
+            &::after{
+                transform: scaleX(1);
+            }
+        }
+        &--seleccionado{
+            color: v.$primaryColor;
+            &::after{
+                transform: scaleX(1);
+            }
+        }
+    }
+}
